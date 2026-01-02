@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>My Orders</h2>
+
+{% for order in orders %}
+<div class="card">
+    <h3>Order #{{ order.order_id }}</h3>
+    <p>Status: {{ order.status }}</p>
+    <p>Total: ₹{{ order.total }}</p>
+    <p>Date: {{ order.created_at }}</p>
+
+    <p><strong>Products:</strong></p>
+    <ul>
+        {% for item in order.order_items %}
+            <li>
+                {{ item.title }}
+<a href="/review/{{ item.product_id }}">Review</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endfor %}
+
+{% endblock %}
+
+
+

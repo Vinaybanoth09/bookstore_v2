@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Bookstore</h1>
+
+{% for product in products %}
+<div class="card">
+    <h3>{{ product.title }}</h3>
+    <p><strong>Author:</strong> {{ product.author }}</p>
+    <p><strong>Price:</strong> ₹{{ product.price }}</p>
+    <p><strong>Stock:</strong> {{ product.stock }}</p>
+    <p>
+    <strong>Rating:</strong>
+    {{ "%.1f"|format(product.avg_rating) }} ⭐
+    ({{ product.review_count }} reviews)
+</p>
+
+    <a href="/add-to-cart/{{ product.product_id }}">
+        <button>Add to Cart</button>
+    </a>
+</div>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="card">
+    <h2>Add Review</h2>
+    <form method="post">
+        <select name="rating" required>
+            <option value="5">⭐⭐⭐⭐⭐</option>
+            <option value="4">⭐⭐⭐⭐</option>
+            <option value="3">⭐⭐⭐</option>
+            <option value="2">⭐⭐</option>
+            <option value="1">⭐</option>
+        </select>
+
+        <textarea name="comment" placeholder="Your review"></textarea>
+        <br><br>
+        <button type="submit">Submit Review</button>
+    </form>
+</div>
+
+{% endblock %}

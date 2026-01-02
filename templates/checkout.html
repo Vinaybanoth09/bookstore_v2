@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="card">
+    <h2>Checkout</h2>
+
+    <form method="post" action="/place-order">
+        <textarea name="address" placeholder="Delivery address" required></textarea>
+
+        <p><strong>Payment Method</strong></p>
+        <select name="payment_method" required>
+            <option value="COD">Cash on Delivery</option>
+            <option value="ONLINE">Online Payment</option>
+        </select>
+
+        <br><br>
+        <button type="submit">Place Order</button>
+    </form>
+</div>
+
+{% endblock %}
