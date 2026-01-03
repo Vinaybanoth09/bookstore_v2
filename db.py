@@ -1,5 +1,6 @@
-import mysql.connector
-from config import DB_CONFIG
+import psycopg2
+import os
 
 def get_connection():
-    return mysql.connector.connect(**DB_CONFIG)
+    DATABASE_URL = os.getenv("DATABASE_URL")
+    return psycopg2.connect(DATABASE_URL, sslmode="require")
