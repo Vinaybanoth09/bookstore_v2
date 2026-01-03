@@ -22,7 +22,7 @@ app.register_blueprint(review)
 @login_required
 def index():
     conn = get_connection()
-    cursor = conn.cursor(dictionary=True)
+    cursor = conn.cursor()
     cursor.execute("""
     SELECT p.*,
            IFNULL(AVG(r.rating), 0) AS avg_rating,
@@ -38,5 +38,8 @@ def index():
     conn.close()
     return render_template("index.html", products=products)
 
+import os
+
 if __name__ == "__main__":
-    app.run()
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
